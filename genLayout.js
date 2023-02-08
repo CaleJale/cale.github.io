@@ -1,9 +1,3 @@
-const sols = require('./solCountLookup');
-const solCounts = sols.lookup;
-const sym = require('./symmetries');
-const symmetries = sym.symmetries;
-
-
 function gridToInt(grid) {
     const rows = {'A': 0, 'B': 6, 'C': 12, 'D': 18, 'E': 24, 'F': 30};
     let num = rows[grid.charAt(0)];
