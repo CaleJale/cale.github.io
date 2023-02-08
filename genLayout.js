@@ -62,7 +62,9 @@ function validNumToLayout(num) {
 }
 
 function generateLayout() {
-    let num = document.getElementById("num").value;
+    document.getElementById("gennedLayout").innerHTML = 'generating layout...';
+    
+    let num = Number(document.getElementById("num").value);
     let message;
     
     if (typeof num !== 'number') {
