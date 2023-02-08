@@ -79,7 +79,7 @@ function generateLayout() {
     
     if (typeof num !== 'number') {
         let message = 'enter a number';
-    } else if (num < 0 || !Number.isInteger(num) {
+    } else if (num < 0 || !Number.isInteger(num)) {
         let message = 'enter a positive integer';
     } else {
         if (solCounts[num]) {
