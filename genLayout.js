@@ -39,10 +39,10 @@ function boardToDice(board) {
 function closestSolCount(num) {
     let i = 0;
     while (true) {
-        if (solCounts[num+i]) {
+        if (lookup[num+i]) {
             return num+i;
         }
-        if (solCounts[num-i]) {
+        if (lookup[num-i]) {
             return num-i;
         }
         i++;
@@ -50,7 +50,7 @@ function closestSolCount(num) {
 }
 
 function validNumToLayout(num) {
-    let layoutOptions = solCounts[num];
+    let layoutOptions = lookup[num];
     let numberOfOptions = layoutOptions.length;
     let rand1 = Math.floor(Math.random()*numberOfOptions);
     let layoutChosen = layoutOptions[rand1];
@@ -70,7 +70,7 @@ function generateLayout() {
     } else if (num < 0 || !Number.isInteger(num)) {
         message = 'enter a positive integer';
     } else {
-        if (solCounts[num]) {
+        if (lookup[num]) {
             let dice = validNumToLayout(num);
             message = `Board with ${num} solutions: ${validNumToLayout(num)}`;
         } else {
