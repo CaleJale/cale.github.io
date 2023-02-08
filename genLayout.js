@@ -1,6 +1,6 @@
-const sols = require('solCountLookup');
+const sols = require('./solCountLookup');
 const solCounts = sols.lookup;
-const sym = require('symmetries');
+const sym = require('./symmetries');
 const symmetries = sym.symmetries;
 
 
