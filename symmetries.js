@@ -50,7 +50,3 @@ const symmetries = [
     board => applyMatrix(board, mirrorSlash_matrix),
     board => applyMatrix(board, mirrorBackslash_matrix)
 ];
-
-module.exports = {
-    symmetries
-}
