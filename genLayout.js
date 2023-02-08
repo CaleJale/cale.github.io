@@ -67,35 +67,26 @@ function validNumToLayout(num) {
     return boardToDice(varBoard);
 }
 
-
-function htmlWrite(elementID, content) {
-    document.getElementById(elementID).innerHTML = content;
-}
-
 function generateLayout() {
-    htmlWrite("gennedLayout", 'generating layout...');
-    
     let num = document.getElementById("num").value;
+    let message;
     
     if (typeof num !== 'number') {
-        let message = 'enter a number';
+        message = 'enter a number';
     } else if (num < 0 || !Number.isInteger(num)) {
-        let message = 'enter a positive integer';
+        message = 'enter a positive integer';
     } else {
         if (solCounts[num]) {
             let dice = validNumToLayout(num);
-            let message = `Layout with ${num} solutions: ${dice}`;
+            message = `Board with ${num} solutions: ${validNumToLayout(num)}`;
         } else {
             let closestNum = closestSolCount(num);
             let dice = validNumToLayout(closestNum);
-            let message = `There are no boards with exactly ${num} solutions`;
+            message = `There are no boards with exactly ${num} solutions`;
             message += `\nThe closest is one with ${closestNum}: `;
             message += validNumToLayout(closestNum);
         }
     }
-    htmlWrite("gennedLayout", message);
+    document.getElementById("gennedLayout").innerHTML = message;
 }
-
-
-
 
