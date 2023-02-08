@@ -37,6 +37,9 @@ function boardToDice(board) {
 }
 
 function closestSolCount(num) {
+    if (num >= 100593) {
+        return 100593;
+    }
     let i = 0;
     while (true) {
         if (lookup[num+i]) {
@@ -69,17 +72,17 @@ function generateLayout() {
     
     if (typeof num !== 'number') {
         message = 'enter a number';
-    } else if (num < 0 || !Number.isInteger(num)) {
+    } else if (num <= 0 || !Number.isInteger(num)) {
         message = 'enter a positive integer';
     } else {
         if (lookup[num]) {
             let dice = validNumToLayout(num);
-            message = `Board with ${num} solutions: ${validNumToLayout(num)}`;
+            message = `Board with ${num} solution${num === 1 ? '' : 's'}: ${validNumToLayout(num)}`;
         } else {
             let closestNum = closestSolCount(num);
             let dice = validNumToLayout(closestNum);
-            message = `There are no boards with exactly ${num} solutions`;
-            message += `\nThe closest is one with ${closestNum}: `;
+            message = `There are no boards with exactly ${num} solutions.`;
+            message += `\n The closest is one with ${closestNum}: `;
             message += validNumToLayout(closestNum);
         }
     }
