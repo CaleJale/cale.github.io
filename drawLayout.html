@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<a href="http://www.youtube.com">
+  <canvas id="myCanvas" width="240" height="240"
+  </canvas>
+</a>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+function drawHLine(i) {
+	ctx.moveTo(0, 40*i);
+	ctx.lineTo(240, 40*i);
+	ctx.stroke();
+}
+
+for (let i = 0; i < 7; i++) {
+	drawHLine(i);
+}
+
+function drawVLine(i) {
+	ctx.moveTo(40*i, 0);
+	ctx.lineTo(40*i, 240);
+	ctx.stroke();
+}
+
+for (let i = 0; i < 7; i++) {
+	drawHLine(i);
+  drawVLine(i);
+}
+
+</script>
+
+</body>
+</html>
