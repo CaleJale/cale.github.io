@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<canvas id="myCanvas" width="240" height="240">
+</canvas>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+function drawHLine(i) {
+	ctx.moveTo(0, 40*i);
+	ctx.lineTo(240, 40*i);
+	ctx.stroke();
+}
+
+function drawVLine(i) {
+	ctx.moveTo(40*i, 0);
+	ctx.lineTo(40*i, 240);
+	ctx.stroke();
+}
+
+function drawPeg(i) {
+	let gridX = i % 6;
+    let gridY = Math.floor(i / 6);
+    let trueX = 20 + (40 * gridX);
+    let trueY = 20 + (40 * gridY);
+    
+    ctx.beginPath();
+    ctx.arc(trueX, trueY, 17, 0, 2 * Math.PI);
+	ctx.stroke();
+    ctx.fillStyle = '#C4A484';
+    ctx.fill();
+}
+
+for (let i = 0; i < 7; i++) {
+	drawHLine(i);
+    drawVLine(i);
+}
+
+drawPeg(5);
+
+</script>
+
+</body>
+</html>
