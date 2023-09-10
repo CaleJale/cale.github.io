@@ -70,3 +70,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.button {
+  position: relative;
+  left: 10px;
+  top: 5px;
+}
