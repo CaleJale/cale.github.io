@@ -74,7 +74,5 @@ a:hover {
 }
 
 .button {
-  position: relative;
-  left: 15px;
-  top: 5px;
+  margin: 5px 5px;
 }
